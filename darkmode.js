@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => {
+    console.log("DOMContentLoaded event fired"); // Check if this event fires
+
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    const body = document.body; 
+    console.log('Toggle button: ', toggleButton);  // Check if it's found
+    console.log('Body element: ', body);         // Check if body is found
+    
     const toggleButton = document.getElementById('dark-mode-toggle');
     const body = document.body;
   
@@ -44,4 +51,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
     applyDarkMode();
     toggleButton.addEventListener('click', toggleDarkMode); 
   });
-  
