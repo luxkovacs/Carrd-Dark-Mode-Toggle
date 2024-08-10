@@ -82,3 +82,13 @@ body {
     filter: invert(1);
   }
   
+  /* Dark Mode Styles for Carrd's Section Wrappers */
+    body.dark-mode .idc0_343.jdhazlpe  { /* These class names might change in Carrd */
+    background-color: #222 !important; /* Your dark mode background color */
+    color: #fff !important;
+   }
+   
+   /* Revert Dark Mode for Links (if needed)*/
+    body.dark-mode a {
+    color: #f7c282;  /* Slightly lighter link color */
+   }
