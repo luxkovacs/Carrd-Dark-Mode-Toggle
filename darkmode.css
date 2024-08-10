@@ -1,0 +1,55 @@
+/* Default Light Mode Styles */
+body {
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease; /* For smooth transitions */
+  }
+  
+  /* Dark Mode Styles (applied when body has .dark-mode class) */
+  body.dark-mode {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  /* Dark Mode Styles for Each Section (using Element IDs from Carrd) */
+  body.dark-mode #section1, 
+  body.dark-mode #section2,
+  body.dark-mode #section3 { /* Add more section IDs as needed */
+    background-color: #222;
+    color: #fff;
+  }
+  
+  /* Style the Toggle Button */
+  #dark-mode-toggle-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  
+  #dark-mode-toggle {
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #FFF; /* Light mode background */
+    color: #000; /* Black emoji in light mode */
+    box-shadow: 0 0 0 2px #000; /* Black border in light mode */
+    text-align: center;
+    line-height: 1;
+    font-size: 24px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  }
+  
+  body.dark-mode #dark-mode-toggle {
+    background-color: #000; /* Dark background */
+    color: #FFF; /* White emoji for contrast */
+    box-shadow: 0 0 0 2px #FFF; /* White border in dark mode */
+  }
+  
+  /* Revert inversion for images - crucial for your requirement */
+  body.dark-mode img {
+    filter: invert(1); 
+  }
+  
