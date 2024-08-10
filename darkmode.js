@@ -1,30 +1,35 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log("DOMContentLoaded event fired"); // Check if this event fires
+    console.log("DOMContentLoaded event fired"); // Added 
 
     const toggleButton = document.getElementById('dark-mode-toggle');
-    const body = document.body; 
-    console.log('Toggle button: ', toggleButton);  // Check if it's found
-    console.log('Body element: ', body);         // Check if body is found
-    
-    const toggleButton = document.getElementById('dark-mode-toggle');
     const body = document.body;
-  
-    // Function to toggle dark mode
+    console.log('Toggle button: ', toggleButton); // Added 
+    console.log('Body element: ', body);        // Added 
+
+    //  Function to toggle dark mode
     function toggleDarkMode() {
-      console.log("toggleDarkMode function called") // Check if function is called
-      body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-      updateToggleButton();
+        console.log("toggleDarkMode function called"); // Added 
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        updateToggleButton();
     }
-  
-    // Update the toggle button appearance
+
+    // Function to update the toggle button appearance
     function updateToggleButton() {
-      if (body.classList.contains('dark-mode')) {
-        toggleButton.textContent = '🌖'; // Light mode emoji 
-      } else {
-        toggleButton.textContent = '🌒'; // Dark mode emoji
-      }
+        if (body.classList.contains('dark-mode')) {
+            toggleButton.textContent = '🌖'; // Light mode emoji
+        } else {
+            toggleButton.textContent = '🌒'; // Dark mode emoji
+        }
     }
+
+    if (localStorage.getItem('darkMode') === 'true') {
+        body.classList.add('dark-mode');
+    }
+    updateToggleButton();
+
+    // Add event listener to the toggle button
+    toggleButton.addEventListener('click', toggleDarkMode);
   
     // Function to apply dark mode based on localStorage
     function applyDarkMode() {
