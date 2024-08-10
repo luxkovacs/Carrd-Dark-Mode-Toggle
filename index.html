@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrd Dark Mode</title>
+  <style>
+    /* Default Light Mode Styles */
+    body {
+      background-color: #fff;
+      color: #000;
+      transition: background-color 0.3s ease, color 0.3s ease; 
+    }
+
+    /* Dark Mode Styles (applied when body has .dark-mode class) */
+    body.dark-mode {
+      background-color: #222;
+      color: #fff;
+    }
+
+    /* Dark Mode Styles for Carrd Sections (using Element IDs) */
+    body.dark-mode #section1, 
+    body.dark-mode #section2,
+    body.dark-mode #section3 { /* Add more section IDs as needed */
+      background-color: #222;
+      color: #fff;
+    }
+
+    /* Style the Toggle Button */
+    #dark-mode-toggle-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    #dark-mode-toggle {
+      cursor: pointer;
+      user-select: none;
+      display: inline-block;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: #FFF; /* Light mode background */
+      color: #000; /* Black emoji in light mode */
+      box-shadow: 0 0 0 2px #000; /* Black border in light mode */
+      text-align: center;
+      line-height: 1;
+      font-size: 24px;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; 
+    }
+
+    body.dark-mode #dark-mode-toggle {
+      background-color: #000; /* Dark background */
+      color: #FFF; /* White emoji for contrast */
+      box-shadow: 0 0 0 2px #FFF; /* White border in dark mode */
+    }
+
+    /* Revert inversion for images - crucial for your requirement */
+    body.dark-mode img {
+      filter: invert(1); 
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dark-mode-toggle-container">
+    <button id="dark-mode-toggle">🌒</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const toggleButton = document.getElementById('dark-mode-toggle');
+      const body = document.body;
+
+      // Function to toggle dark mode
+      function toggleDarkMode() {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+        updateToggleButton();
+      }
+
+      // Update the toggle button appearance
+      function updateToggleButton() {
+        if (body.classList.contains('dark-mode')) {
+          toggleButton.textContent = '🌖'; // Light mode emoji 
+        } else {
+          toggleButton.textContent = '🌒'; // Dark mode emoji
+        }
+      }
+
+      // Function to apply dark mode based on localStorage
+      function applyDarkMode() {
+        if (localStorage.getItem('darkMode') === 'true') {
+          body.classList.add('dark-mode');
+        } else {
+          body.classList.remove('dark-mode');
+        }
+        updateToggleButton(); 
+      }
+
+      // Mutation observer to detect potential section changes
+      // (Might have limited effect in IFRAME) 
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+          if (mutation.type === 'childList') {
+            applyDarkMode(); 
+          }
+        });
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+
+      // Set initial mode and attach event listener
+      applyDarkMode(); 
+      toggleButton.addEventListener('click', toggleDarkMode);
+    });
+  </script>
+
+</body>
+</html>
