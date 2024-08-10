@@ -1,0 +1,84 @@
+/* Default Light Mode Styles */
+body {
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+   /* Dark Mode Styles (Applied When .dark-mode Class is Present) */
+   body.dark-mode {
+    background-color: #222; /* Or your preferred dark background color */
+    color: #fff; 
+   }
+  
+  /* Dark Mode Styles for Specific Carrd Sections */
+   body.dark-mode #home-section,
+   body.dark-mode #guidelines-section,
+   body.dark-mode #muses-section,
+   body.dark-mode #alicia-section, 
+   body.dark-mode #charles-section,
+   body.dark-mode #cremisius-section,
+   body.dark-mode #brasidas-section,
+   body.dark-mode #liam-section,
+   body.dark-mode #aiden-section,
+   body.dark-mode #v-section,
+   body.dark-mode #perry-section, 
+   body.dark-mode #kaneziel-section,
+   body.dark-mode #sylvan-section,
+   body.dark-mode #aphanaru-section,
+   body.dark-mode #ethan-section,
+   body.dark-mode #elladan-section, 
+   body.dark-mode #aerendyl-section  {
+    background-color: transparent !important; /* Make section content transparent */
+  }
+  
+  /* Styles for Fixed Background Elements in Each Section */
+   body.dark-mode #home-section:before,
+   body.dark-mode #guidelines-section:before,
+   body.dark-mode #muses-section:before,
+   body.dark-mode #alicia-section:before,
+   body.dark-mode #charles-section:before,
+   body.dark-mode #cremisius-section:before,
+   body.dark-mode #brasidas-section:before,
+   body.dark-mode #liam-section:before,
+   body.dark-mode #aiden-section:before,
+   body.dark-mode #v-section:before,
+   body.dark-mode #perry-section:before,
+   body.dark-mode #kaneziel-section:before,
+   body.dark-mode #sylvan-section:before,
+   body.dark-mode #aphanaru-section:before,
+   body.dark-mode #ethan-section:before,
+   body.dark-mode #elladan-section:before, 
+   body.dark-mode #aerendyl-section:before {
+     content: '';
+     position: fixed; 
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%; /* Adjust height as needed */
+     background-color: #222; /* Use your desired dark background color */
+     z-index: -1; /* Place behind content */
+     transition: background-color 0.3s ease;
+  }
+  
+  /* Style the Toggle Button */
+  #dark-mode-toggle-container {
+       position: fixed;
+       bottom: 20px;
+       right: 20px;
+       z-index: 1000;
+   }
+  
+  #dark-mode-toggle {
+    /* ... your existing toggle button styles */
+  }
+  
+  body.dark-mode #dark-mode-toggle {
+     /* ... your existing dark mode toggle styles */
+  }
+  
+  /* Revert inversion for images */
+  body.dark-mode img {
+    filter: invert(1);
+  }
+  
