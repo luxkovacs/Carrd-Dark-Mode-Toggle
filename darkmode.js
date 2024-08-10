@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
     // Function to toggle dark mode
     function toggleDarkMode() {
+      console.log("toggleDarkMode function called") // Check if function is called
       body.classList.toggle('dark-mode');
       localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
       updateToggleButton();
